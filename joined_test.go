@@ -8,8 +8,24 @@ import (
 )
 
 func ExampleAnd() {
-	list := []string{"one", "two", "three"}
-	fmt.Println(And(list))
+	list := []string{"one", "two"}
+	fmt.Println(And(list)) // "one and two"
+
+	list = []string{"one", "two", "three"}
+	fmt.Println(And(list)) // "one, two and three"
+}
+
+func ExampleOr() {
+	list := []string{"one", "two"}
+	fmt.Println(Or(list)) // "one or two"
+
+	list = []string{"one", "two", "three"}
+	fmt.Println(Or(list)) // "one, two or three"
+}
+
+func ExampleArbitrary() {
+	list := []string{"eins", "zwei", "drei"}
+	fmt.Println(Arbitrary(", ", " und ", list)) // "eins, zwei und drei"
 }
 
 func TestAnd(t *testing.T) {
