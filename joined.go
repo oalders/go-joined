@@ -32,8 +32,13 @@ func Arbitrary(wordSeparator string, conjunction string, list []string) string {
 	x := make([]string, len(list))
 	copy(x, list)
 
-	// replace last two elements with a single element joined by "and"
-	x[len(x)-2] = strings.Join(x[len(x)-2:], conjunction)
+	// Replace last two elements with a single element joined by the conjunction.
+	// For 3+ items, use an Oxford comma (word separator before the conjunction).
+	joinWith := conjunction
+	if len(list) >= 3 {
+		joinWith = strings.TrimRight(wordSeparator, " ") + conjunction
+	}
+	x[len(x)-2] = strings.Join(x[len(x)-2:], joinWith)
 	x = x[:len(x)-1]
 
 	return strings.Join(x, wordSeparator)

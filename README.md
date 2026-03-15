@@ -17,7 +17,7 @@ list := []string{"one", "two"}
 fmt.Println(And(list)) // "one and two"
 
 list = []string{"one", "two", "three"}
-fmt.Println(And(list)) // "one, two and three"
+fmt.Println(And(list)) // "one, two, and three"
 
 ```
 
@@ -33,7 +33,7 @@ the conjunction.
 ```golang
 
 list := []string{"eins", "zwei", "drei"}
-fmt.Println(Arbitrary(", ", " und ", list)) // "eins, zwei und drei"
+fmt.Println(Arbitrary(", ", " und ", list)) // "eins, zwei, und drei"
 
 ```
 
@@ -50,7 +50,7 @@ list := []string{"one", "two"}
 fmt.Println(Or(list)) // "one or two"
 
 list = []string{"one", "two", "three"}
-fmt.Println(Or(list)) // "one, two or three"
+fmt.Println(Or(list)) // "one, two, or three"
 
 ```
 
